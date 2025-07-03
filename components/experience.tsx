@@ -50,7 +50,7 @@ export function Experience() {
       id: 1,
       title: "B.Tech in CSE (AI)",
       company: "Rungta College of Engineering & Technology",
-      period: "2022 - Present",
+      period: "2023 - Present",
       description:
         "Currently pursuing a Bachelor's degree in Computer Science Engineering with a specialization in Artificial Intelligence. Maintaining a strong academic record with a focus on AI, machine learning, and software development.",
       icon: <GraduationCap className="h-6 w-6" />,
