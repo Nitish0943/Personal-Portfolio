@@ -110,7 +110,14 @@ export function Experience() {
               initial={{ height: 0 }}
               animate={isInView ? { height: "100%" } : { height: 0 }}
               transition={{ duration: 1.5 }}
-              className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-primary/20 h-full rounded-full"
+              className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-primary/20 h-full rounded-full md:block hidden"
+            ></motion.div>
+            {/* Mobile Timeline Line */}
+            <motion.div
+              initial={{ height: 0 }}
+              animate={isInView ? { height: "100%" } : { height: 0 }}
+              transition={{ duration: 1.5 }}
+              className="absolute left-4 w-1 bg-primary/20 h-full rounded-full md:hidden"
             ></motion.div>
 
             {/* Timeline Items */}
@@ -120,24 +127,37 @@ export function Experience() {
                   key={exp.id}
                   custom={index}
                   variants={timelineItemVariants}
-                  className={`mb-12 flex items-center ${index % 2 === 0 ? "justify-start" : "justify-end"} relative`}
+                  className={`mb-12 flex items-center relative 
+                    md:${index % 2 === 0 ? "justify-start" : "justify-end"} 
+                    ${index % 2 === 0 ? "" : ""} 
+                    ${index % 2 === 0 ? "" : ""} 
+                    ${index % 2 === 0 ? "" : ""} 
+                    md:flex-row flex-col
+                  `}
                 >
                   {/* Timeline Dot */}
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={isInView ? { scale: 1 } : { scale: 0 }}
                     transition={{ delay: index * 0.2, duration: 0.5 }}
-                    className={`absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-primary z-10`}
+                    className={`absolute md:left-1/2 md:transform md:-translate-x-1/2 left-4 w-5 h-5 rounded-full bg-primary z-10`}
                   ></motion.div>
 
                   {/* Content Card */}
                   <motion.div
                     whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                    className={`w-5/12 ${index % 2 === 0 ? "pr-8" : "pl-8"}`}
+                    className={`
+                      md:w-5/12 w-[90%] 
+                      md:${index % 2 === 0 ? "pr-8" : "pl-8"} 
+                      md:static relative 
+                      mx-auto 
+                      ${index % 2 === 0 ? "md:ml-0 md:mr-auto" : "md:mr-0 md:ml-auto"}
+                      mt-8 md:mt-0
+                    `}
                   >
                     <Card className="border border-primary/10 bg-background/50 backdrop-blur-sm hover:shadow-md hover:shadow-primary/5 transition-all duration-300">
                       <CardContent className="p-6">
-                        <div className={`flex items-center ${index % 2 === 0 ? "justify-end" : "justify-start"} mb-2`}>
+                        <div className={`flex items-center md:${index % 2 === 0 ? "justify-end" : "justify-start"} justify-center mb-2`}>
                           <span
                             className={`text-xs font-medium px-2 py-1 rounded-full ${
                               exp.type === "work"
@@ -151,11 +171,9 @@ export function Experience() {
                           </span>
                         </div>
                         <div
-                          className={`flex items-start ${
-                            index % 2 === 0 ? "flex-row-reverse text-right" : "text-left"
-                          }`}
+                          className={`flex items-start md:${index % 2 === 0 ? "flex-row-reverse text-right" : "text-left"} flex-col text-center md:text-inherit`}
                         >
-                          <div className={`p-2 rounded-full bg-primary/10 ${index % 2 === 0 ? "ml-4" : "mr-4"}`}>
+                          <div className={`p-2 rounded-full bg-primary/10 md:${index % 2 === 0 ? "ml-4" : "mr-4"} mx-auto md:mx-0 mb-2 md:mb-0`}>
                             {exp.icon}
                           </div>
                           <div>
