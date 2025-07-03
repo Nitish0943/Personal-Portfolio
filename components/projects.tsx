@@ -155,7 +155,7 @@ export function Projects() {
       title: "InterVue AI – AI-Powered Productivity Assistant",
       description:
         "An AI-based task manager offering intelligent prioritization, scheduling, and productivity analytics.",
-      image: "/intervue_Ai.png",
+      image: "/intervue_AI.png",
       tags: ["React", "Node.js", "TensorFlow.js", "MongoDB"],
       github: "https://github.com/Nitish0943/InterVue-AI",
       demo: "https://final-alpha-one.vercel.app/sign-in",
